@@ -243,22 +243,20 @@ class GameOfLifeWindow(QMainWindow):
 
 		self.speed_combo = QComboBox(self)
 		self.speed_map = {
-			1 : 2,
-			2 : 1.5,
-			3 : 1,
-			4 : 0.5,
-			5 : 0.3,
-			6 : 0.2,
-			7 : 0.1,
-			8 : 0.05,
-			9 : 0.02,
+			1 : 1,
+			2 : 0.5,
+			3 : 0.3,
+			4 : 0.2,
+			5 : 0.1,
+			6 : 0.05,
+			7 : 0.02,
 		}
 		for i in self.speed_map.keys():
 			self.speed_combo.addItem(str(i))
 		self.speed_combo.move(724, 170)
 		self.speed_combo.activated[str].connect(self.selectSpeedAction)
 
-		default_speed = 6
+		default_speed = 4
 		self.speed_combo.setCurrentIndex(default_speed-1)
 		self.update_timer.start(self.speed_map[default_speed] * 1000)
 
